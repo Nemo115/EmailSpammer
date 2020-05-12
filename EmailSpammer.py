@@ -62,6 +62,7 @@ newmsg.set_content("email: " + sender +  "\n" + password)
 
 for number in range(times):
     client.send_message(msg)
-    if number == times - 1:
-        print("finished sending " + times + " emails!")
+    if number == (times - 1):
+        t = str(times)
+        print("finished sending " + t + " emails!")
 
