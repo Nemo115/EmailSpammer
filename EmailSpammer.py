@@ -7,6 +7,9 @@ selectedPass = ""
 
 bot1 = "smurf31233@gmail.com"
 password1 = "thisIsSmurf1234"
+
+bot2 = "thisIsSmurf1234"
+
 #start screen
 print("░░░░░░░░████████████████░░░░░░░")
 print("░░░░░█████████████████████░░░░░")
@@ -39,14 +42,20 @@ input("Press 'Enter' to begin spam attack")
 
 inp = input("What do you want to send? ")
 
-msg = EmailMessage() 
+msg = EmailMessage()
 msg.set_content(inp) #text inside message
 
 subject = input("Enter the subject of the email ")
-sender = input("Select which email you would like to send from: \n1 \n2 ")
-if sender == "1":
-    selected = bot1
-    selectedPass = password1
+try:
+    sender = input("Select which email you would like to send from: \n1 \n2 ")
+    if sender == "1":
+        selected = bot1
+        selectedPass = password1
+    elif sender == "2":
+        selected = bot2
+        selectedPass = password1
+except:
+    sender = input("please enter a number: ")
 reciever = input("Enter the email that will recieve the spam: ")
 msg['Subject'] = subject #email subject
 msg['From'] = selected #sender
