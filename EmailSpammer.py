@@ -8,7 +8,7 @@ selectedPass = ""
 bot1 = "smurf31233@gmail.com"
 password1 = "thisIsSmurf1234"
 
-bot2 = "thisIsSmurf1234"
+bot2 = "pinksmurf221@gmail.com"
 
 #start screen
 print("░░░░░░░░████████████████░░░░░░░")
